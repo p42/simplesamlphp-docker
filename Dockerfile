@@ -4,7 +4,7 @@ MAINTAINER Unicon, Inc.
 
 RUN yum -y install epel-release \
     && yum -y update \
-    && yum -y install httpd mod_ssl php php-mcrypt php-pdo php-pear php-xml php-mysql php-ldap wget \
+    && yum -y install httpd mod_ssl php php-mcrypt php-pdo php-pear php-xml php-mysql php-ldap php-pecl-memcache wget \
     && yum -y clean all
 
 RUN ssp_version=1.14.8; \
