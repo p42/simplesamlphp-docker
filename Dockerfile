@@ -21,6 +21,8 @@ RUN echo $'\nSetEnv SIMPLESAMLPHP_CONFIG_DIR /var/simplesamlphp/config\nAlias /s
     Require all granted\n \
 </Directory>\n' \
        >> /etc/httpd/conf/httpd.conf
+RUN echo $'<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">\n<html>\n<meta http-equiv="Refresh" content="0; URL=/simplesaml/module.php/core/authenticate.php">\n<head>\n<title>Redirect to Secure login page</title>\n</head>\n<body>\n<div align="center"><font size="0" color="#909090">If this page does not automatically redirect you to the login page <br>click <a href="/simplesaml/module.php/core/authenticate.php">here</a></font></div>\n</body>\n</html>\n' \
+       > /var/www/html/index.html
 
 COPY httpd-foreground /usr/local/bin/
 
